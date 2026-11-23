@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { color-scheme: dark; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body {
+    @apply min-h-screen text-[#f3f3ff] antialiased;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(900px 520px at 12% -8%, rgba(94,74,235,.75), transparent 62%),
+                radial-gradient(800px 480px at 105% 4%, rgba(31,182,232,.45), transparent 58%),
+                radial-gradient(700px 500px at 50% 110%, rgba(200,60,220,.3), transparent 60%), #12122b;
+    background-attachment: fixed;
+  }
+  [hidden] { display: none !important; }
+}
+
+@layer components {
+  .chip { @apply cursor-pointer rounded-full border border-white/10 px-3.5 py-1.5 text-sm text-mut transition hover:text-white; }
+  .chip.on { @apply border-transparent bg-gradient-to-br from-agro-pink to-agro-violet text-white; }
+  .btn { @apply inline-block cursor-pointer rounded-full bg-agro-pink px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-agro-pink/40 transition hover:brightness-110 disabled:opacity-60; }
+  .btn-ghost { @apply border border-white/10 bg-transparent text-mut shadow-none; }
+  .field { @apply w-full rounded-xl border border-white/10 bg-white/10 px-3.5 py-2.5 text-white placeholder:text-mut; font: inherit; }
+  .lbl { @apply mb-1 mt-3 block text-[13px] text-mut; }
+  .link { @apply cursor-pointer text-[13px] text-white/70 hover:text-white; }
+  dialog { @apply w-[min(480px,92vw)] rounded-3xl border border-white/10 bg-[#1a1a40] p-6 text-white; }
+  dialog::backdrop { background: rgba(5,5,20,.7); }
+}
